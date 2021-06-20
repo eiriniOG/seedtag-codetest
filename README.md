@@ -2,7 +2,7 @@
 
 ## Problem description
 I focused on finding a solution for the two challenges presented in the
- document.
+ document `problem.pdf`.
 - Challenge 1: given a model for image recognition, hack it to miss a
  labrador retriever image changing the pixels in a way not detectable for
   the human eye.
