@@ -3,7 +3,7 @@ import tensorflow as tf
 
 class Fool:
 
-    EPSILON = 0.01
+    EPSILON = 0.2
 
     def __init__(self, idx_thing: int, image, probs, model):
         self.index = idx_thing

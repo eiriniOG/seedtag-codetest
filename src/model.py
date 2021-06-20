@@ -49,7 +49,7 @@ if __name__ == "__main__":
 
     # This plots the results
     plt.figure()
-    plt.imshow(fake_pic[0]*0.5+0.5)
+    plt.imshow(image[0]*0.5+0.5)
     _, image_class, class_confidence = get_imagenet_label(hack)
     result = '{} : {:.2f}% Confidence'.format(image_class, class_confidence*100)
     print(result)
