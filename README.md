@@ -2,11 +2,12 @@
 
 ## Problem description
 I focused on finding a solution for the two challenges presented in the
- document.
+ document `problem.pdf`.
 - Challenge 1: given a model for image recognition, hack it to miss a
  labrador retriever image changing the pixels in a way not detectable for
   the human eye.
-- Challenge 2: training a flower recognition model strong against the hack from
+- Challenge 2: training a flower recognition model strong enough against the
+ hack from
  Challenge 1
  
  ## Tools
@@ -19,12 +20,10 @@ I focused on finding a solution for the two challenges presented in the
   `make install_<unix/windows>` will set up venv  
   `make run` will execute
    model.py to test the labrador retriever hack  
-   I can guarantee that this
-    will work on your side. 
+   This should work on your side. 
   
  There is a notebook `flower_power.ipynb` made in Colab for Challenge 2: please open, take into
-  account paths, and review. I cannot guarantee that this will work on your
-   side.
+  account paths, and review. This is environment dependant.
  
  ## Solution
  ### Challenge 1: the labrador retriever hack
@@ -84,7 +83,7 @@ I wanted to write something simple that could easily be added to the
  #### 3. Results
 When executing `model.py` with `EPSILON=0.01`, the labrador retriever is
  classified as a Saluki
- with 16.60% confidence (saved in `/assets` folder), which is another type of
+ with 16.60% confidence (saved in `/results` folder), which is another type of
   hound dog
   (imagenet index 176). If `EPSILON=0.15`, the model thinks the image is a Weimaraner, and if
   `EPSILON=0.2` the model even thinks the image is an African chameleon
@@ -133,7 +132,14 @@ The best version of the model v3 took 50 mins to train (accuracy is 91.25
    model v3 could be undertrained or overfitted
    to the train-test samples. Model versions v1 and v2 had lower accuracy
     but responded better to the out-of-sample test images. All three
-     versions of the model can be found in `/assets` folder.
+     versions of the model can be found in `/results` folder.
+After these initial tries, I finally trained a v4 model with 100 epochs and
+ 50 substeps to see if I could lower the overfitting, and it turned out
+  better. A v5 model was also trained with 50 epochs and 50 substeps and
+   similar results were obtained with a little less of accuracy over val
+    dataset. Both models succeeded in 11/13 test pictures. You can see a
+     summary of results in `/results
+    /results.pdf`. I would probably go for v4 version as final candidate.
 
 
  ## Conclusions and improvements
@@ -142,7 +148,9 @@ The best version of the model v3 took 50 mins to train (accuracy is 91.25
  - I would like to learn how to optimize One Pixel Attack, it
  is something I did not fully understand in terms of implementation.
  - I should try to make a flower model from scratch and build it step by
-  step to experiment the full picture of a neural network configuration.
+  step to experiment the full picture of a neural network configuration. Or
+   at least do some fine-tuning to current layers, which I did not try (I
+    only changed epochs and substeps).
  - I need to write a script that goes over every image in the train and test
   folders and generates adversarial images using `_make_noise()` from class
    `Fool
