@@ -95,7 +95,6 @@ When executing `model.py` with `EPSILON=0.01`, the labrador retriever is
  #### 1. Thinking
  This one was relatively "easy" to decide. I just went for a transfer
   learning approach and supported my coding with available repositories.
-  I downloaded 
  Prior to anything, given the bulk structure of the flowers dataset I had to
   download the flowers into my local disk and then
   run some bash code to split it into train and test sets using path
