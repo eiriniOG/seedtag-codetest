@@ -47,8 +47,8 @@ The Adversarial Patch was discarded right away since it is too obvious and
   changing one pixel only at random areas of the image
  (center, up/down
 -left/right quarter centers) and it did something (few decimal points lower
- than the original precision). So I find this approach very interesting
-  because it does not depend on the pretrained model itself. Finding the
+ than the original precision). I find this approach very interesting
+  because it does not depend on the pretrained model itself. But locating the
    correct pixel is a rather complex optimization problem, so I discarded
     this approach too.
      
